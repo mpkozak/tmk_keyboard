@@ -1,3 +1,7 @@
+# kozak
+_kozak/builds
+z_*
+
 .dep
 *.o
 *.eep
