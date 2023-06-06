@@ -62,6 +62,7 @@ function build {
   echo "include Makefile" >> "$makefile"
 
   echo "building the $board_name..."
+  make -f "$makefile" clean
   make -f "$makefile" KEYMAP="$keymap"
 
   mkdir "$fw_name"
