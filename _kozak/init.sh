@@ -59,6 +59,9 @@ function build {
 
   echo "TARGET = $fw_name" > "$makefile"
   echo "MCU = atmega16u2" >> "$makefile"
+  ## unimap -- IGNORE
+      # echo "UNIMAP_ENABLE = yes" >> "$makefile"
+      # echo "KEYMAP_SECTION_ENABLE = yes" >> "$makefile"
   echo "include Makefile" >> "$makefile"
 
   echo "building the $board_name..."
