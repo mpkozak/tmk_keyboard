@@ -44,10 +44,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LCTL)) \
 )
 
+
 /* boot magic key */
-#define BOOTMAGIC_KEY_SALT                      KC_FN0
+// #define BOOTMAGIC_KEY_SALT                      KC_FN0
+#define BOOTMAGIC_KEY_SALT                      KC_LCTL
 #define BOOTMAGIC_KEY_CAPSLOCK_TO_CONTROL       KC_LCAP
 #define BOOTMAGIC_KEY_BOOTLOADER                KC_B
+
+
+/* disable action features */
+#define NO_ACTION_ONESHOT
+#define NO_ACTION_MACRO
+
+/* disable debug print */
+#define NO_DEBUG
+
+/* disable print */
+#define NO_PRINT
 
 
 /* ports */
