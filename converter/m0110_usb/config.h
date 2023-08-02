@@ -46,7 +46,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /* boot magic key */
-// #define BOOTMAGIC_KEY_SALT                      KC_FN0
 #define BOOTMAGIC_KEY_SALT                      KC_LCTL
 #define BOOTMAGIC_KEY_CAPSLOCK_TO_CONTROL       KC_LCAP
 #define BOOTMAGIC_KEY_BOOTLOADER                KC_B
