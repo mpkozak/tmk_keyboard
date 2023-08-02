@@ -23,7 +23,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Default:
      * M0110                                                       M0120
      * ,---------------------------------------------------------. ,---------------.
-     * |  `|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backs| |Nlk|  -|  +|  *|
+     * |  `|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backs| |Clr|  -|  +|  *|
      * |---------------------------------------------------------| |---------------|
      * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|  \| |  7|  8|  9|  /|
      * |---------------------------------------------------------| |---------------|
@@ -31,11 +31,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |---------------------------------------------------------| |---------------|
      * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  ,|  /|Shift   | |  1|  2|  3|   |
      * `---------------------------------------------------------' |-----------|Ent|
-     *      |Opt|Mac |         Space               |Mac |Opt|      |      0|  .|   |
+     *      |Opt|Mac |         Space               |Ent |Opt|      |      0|  .|   |
      *      `-----------------------------------------------'      `---------------'
      *  M0110A
      * ,---------------------------------------------------------. ,---------------.
-     * |  `|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Bcksp| |Nlk|  =|  /|  *|
+     * |  `|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Bcksp| |Clr|  =|  /|  *|
      * |---------------------------------------------------------| |---------------|
      * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|   | |  7|  8|  9|  -|
      * |-----------------------------------------------------'   | |---------------|
@@ -46,19 +46,34 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |Opt  |Mac    |           Space           |  \|Lft|Rgt|Dn | |      0|  .|   |
      * `---------------------------------------------------------' `---------------'
      */
+/** template **/
+    // [0] = KEYMAP(
+    // NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,      NO,  NO,  NO,  NO,
+    // NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,           NO,  NO,  NO,  NO,
+    // NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,       NO,      NO,  NO,  NO,  NO,
+    // NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,            NO,      NO,  NO,  NO,  NO,
+    // NO,  NO,                 NO,                 NO,  NO,  NO,  NO,  NO,      NO,       NO
+    // ),
     [0] = KEYMAP(
     ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC,    LCTL,PEQL,PSLS,PAST,
-    TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,         P7,  P8,  P9,  PMNS,
+    FN16,Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,         P7,  P8,  P9,  PMNS,
     LCAP,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,     P4,  P5,  P6,  PPLS,
-    LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          UP,      P1,  P2,  P3,  PENT,
-    LALT,LGUI,               FN0,                LCTL,BSLS,LEFT,RGHT,DOWN,    P0,       PDOT
+    LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN20,    P1,  P2,  P3,  FN21,
+    LALT,LGUI,               FN0,                RGUI,FN17,LEFT,RGHT,DOWN,    FN19,     PDOT
     ),
     [1] = KEYMAP(
-    GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, FN1,     LCTL,PEQL,PSLS,PAST,
-    TRNS,FN8, FN9, FN2, NO,  FN15,NO,  NO,  UP,  FN8, FN9, F14, F15,          P7,  P8,  P9,  PMNS,
-    TRNS,FN10,FN11,F11, FN3, NO,  NO,  LEFT,DOWN,RGHT,FN10,FN11,     TRNS,    P4,  P5,  P6,  PPLS,
-    TRNS,FN5, FN6, FN7, FN4, FN13,FN14,FN12,VOLD,VOLU,MUTE,          PGUP,    P1,  P2,  P3,  PENT,
-    LCTL,TRNS,               TRNS,               TRNS,BTLD,HOME,END, PGDN,    P0,       PDOT
+    GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, FN1,     BSPC,FN13,FN14,FN7,
+    TRNS,FN8, FN9, FN2, NO,  FN15,NO,  NO,  UP,  FN8, FN9, F14, F15,          FN8, FN12,FN9, FN5,
+    TRNS,FN10,FN11,F11, FN3, NO,  NO,  LEFT,DOWN,RGHT,FN10,FN11,     TRNS,    FN10,UP,  FN11,FN6,
+    TRNS,FN5, FN6, FN7, FN4, FN13,FN14,FN12,VOLD,VOLU,MUTE,          TRNS,    LEFT,DOWN,RGHT,FN22,
+    LCTL,TRNS,               TRNS,               FN18,TRNS,TRNS,TRNS,TRNS,    TRNS,     TAB
+    ),
+    [2] = KEYMAP(
+    FN1, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  F14, F15, VOLD,VOLU,MUTE,    BTLD,FN13,FN14,FN7,
+    TRNS,FN8, FN9, NO,  NO,  NO,  NO,  NO,  NO,  NO,  UP,  FN8, FN9,          FN8, FN12,FN9, FN5,
+    TRNS,FN10,FN11,NO,  NO,  NO,  NO,  NO,  NO,  LEFT,DOWN,RGHT,     TRNS,    FN10,UP,  FN11,FN6,
+    TRNS,NO,  NO,  NO,  FN4, NO,  NO,  NO,  F11, FN10,FN11,          TRNS,    LEFT,DOWN,RGHT,TRNS,
+    BTLD,TRNS,               TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,    TRNS,     TAB
     ),
 };
 
@@ -82,4 +97,12 @@ const action_t fn_actions[] PROGMEM = {
     [13] = ACTION_MODS_KEY(MOD_LGUI, KC_LBRC),                          // browser back
     [14] = ACTION_MODS_KEY(MOD_LGUI, KC_RBRC),                          // browser forward
     [15] = ACTION_MODS_KEY(MOD_LALT | MOD_LGUI, KC_ESC),                // force quit
+    [16] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_TAB),                       // control under tab
+    [17] = ACTION_MODS_TAP_KEY(MOD_RGUI, KC_BSLS),                      // cmd under backslash (for m0110a layout)
+    [18] = ACTION_LAYER_MOMENTARY(2),
+//* m0110a only *//
+    [19] = ACTION_LAYER_TAP_KEY(1, KC_P0),
+    [20] = ACTION_LAYER_TAP_KEY(2, KC_UP),
+    [21] = ACTION_LAYER_TAP_KEY(2, KC_PENT),
+    [22] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_PENT),                      // shift under numpad enter
 };
