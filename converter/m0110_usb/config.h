@@ -51,6 +51,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BOOTMAGIC_KEY_BOOTLOADER                KC_B
 
 
+// faster tap threshold
+#define TAPPING_TERM 160
+
 /* disable action features */
 #define NO_ACTION_ONESHOT
 #define NO_ACTION_MACRO
